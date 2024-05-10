@@ -1,0 +1,52 @@
+Provide environment variables listed in example.env
+
+ 1. Register user
+	 1. POST reuest
+	 2. http://localhost:8000/api/auth/signup    
+	 3. Give name, email, password, phoneNumber, bio, photo, privacy while registering user (json body) , if privacy is not provide it will public by deafult. privacy  value can be "public" or "private".
+
+2. Login user
+	1. POST request
+	2.  http://localhost:8000/api/auth/login 
+	3. Give email and password (json body)
+
+3. Refresh Access Token
+	1. POST request
+	2. http://localhost:8000/api/auth/refresh-token
+
+4. Logout
+	1. POST reqiest
+	2. http://localhost:8000/api/auth/logout 
+ 	3. Include x-api-key in header and also include access token in authorization header (bearer token)
+
+ 5. Get all users 
+  	1. GET reqiest
+	2.  http://localhost:8000/api/users/    
+  	3. If the authenticated user is an admin then all public and private profiles will be listed.
+ 	4. If the authenticated user is a normal user then all public profiles will be listed
+	5. Include x-api-key in header and also include access token in authorization header (bearer token)
+
+
+6. Profile details  
+	1. GET	reqiest 
+	2. http://localhost:8000/api/users/:id  
+	3. if public profile -> everybody can see the details
+	4. if private profile -> only profile owner and admin can see the details
+ 	5. include x-api-key in header and also include access token in authorization header (bearer token)
+
+7. Update Profile Details
+	1. PUT request
+	2. http://localhost:8000/api/users/:id/update 
+	3. User can update name, email, password, phoneNumber, bio, privacy (give json body).
+ 	4. Include x-api-key in header and also include access token in authorization header (bearer token)
+
+8. Update Photo
+	1. PUT method
+	2. http://localhost:8000/api/users/:id/updatePhoto  
+	3. User can update profile image by giving image url or image file in form data
+	4. Use profileImg as key in form data
+ 	5. include x-api-key in header and also include access token in authorizatio header (bearer token)
+
+
+
+
